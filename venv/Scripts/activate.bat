@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Usuario\Documents\SEXTO CICLO 2\Rea-k-Back\venv
+set VIRTUAL_ENV=C:\Users\thema\OneDrive\Documentos\Construccion del software\Backend-Rea-k\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

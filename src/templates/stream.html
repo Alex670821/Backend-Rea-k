@@ -1,0 +1,29 @@
+<!-- templates/stream.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Stream</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+            socket.on('response', function(msg) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(msg.data));
+                document.getElementById('messages').appendChild(li);
+            });
+
+            document.getElementById('sendbutton').onclick = function() {
+                socket.send(document.getElementById('myMessage').value);
+                document.getElementById('myMessage').value = '';
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>Live Stream</h1>
+    <ul id="messages"></ul>
+    <input id="myMessage" type="text" placeholder="Enter message here">
+    <button id="sendbutton">Send</button>
+</body>
+</html>
